@@ -12,8 +12,8 @@ public class UptimeClock
     public DateTime UpSince
     {
         get
-        { 
-            return _startTime; 
+        {
+            return _startTime;
         }
     }
 }
