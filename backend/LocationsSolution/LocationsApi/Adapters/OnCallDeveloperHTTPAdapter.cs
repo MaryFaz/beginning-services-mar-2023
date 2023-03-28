@@ -1,6 +1,7 @@
 ﻿using LocationsApi.Models;
 
 namespace LocationsApi.Adapters;
+
 public class OnCallDeveloperHttpAdapter
 {
     private readonly HttpClient _httpClient;
@@ -19,4 +20,5 @@ public class OnCallDeveloperHttpAdapter
 
         return contact;
     }
+
 }

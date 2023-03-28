@@ -8,8 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<ISystemTime, SystemTime>();
-builder.Services.AddScoped<IProvideSupportSchedule, SupportSchedule>();
-
+builder.Services.AddScoped<IProvideSupportSchedule, HolidayBasedSupportSchedule>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -34,16 +33,14 @@ app.MapGet("/oncalldeveloper", (IProvideSupportSchedule supportSchedule) =>
     else
     {
         response = new OnCallDeveloperModel
-
         {
             Name = "House of Outsourced Support, Inc.",
             Phone = "800 111-1111",
             Email = "support@house-of-outsourced-support.com"
         };
     }
-
-return Results.Ok(response);
+    return Results.Ok(response);
 });
 
-
 app.Run();
+
