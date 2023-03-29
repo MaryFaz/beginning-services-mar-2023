@@ -22,7 +22,7 @@ public class StatusController : ControllerBase
     [HttpGet("/support")]
     public async Task<ActionResult> GetStatus()
     {
-        var sinceStartup = DateTime.Now - _clock.UpSince;
+        var sinceStartup =  DateTime.Now - _clock.UpSince;
         ContactInfo? contactInfo;
         try
         {
@@ -30,25 +30,26 @@ public class StatusController : ControllerBase
         }
         catch (Exception)
         {
+
             //contactInfo = new ContactInfo
             //{
-            //    Name = "Front Desk",
-            //    Email = "frontdesk@company.com",
-            //    Phone = "888-2828"
+            //    Name = "Front Desk",
+            //    Email = "frontdesk@company.com",
+            //    Phone = "888-2828"
             //};
             contactInfo = null;
         }
         var response = new GetStatusResponse()
         {
-            ContactInfo = contactInfo,
-            Uptime = new Uptime
-            {
-                Hours = sinceStartup.Hours,
-                Minutes = sinceStartup.Minutes,
-                Days = sinceStartup.Days,
-                Seconds = sinceStartup.Seconds,
-                Milliseconds = sinceStartup.Milliseconds
-            }
+               ContactInfo = contactInfo,
+               Uptime = new Uptime
+               {
+                   Hours = sinceStartup.Hours,
+                   Minutes = sinceStartup.Minutes,
+                   Days = sinceStartup.Days,
+                   Seconds = sinceStartup.Seconds,
+                   Milliseconds = sinceStartup.Milliseconds
+               }
         };
         return Ok(response);
     }
