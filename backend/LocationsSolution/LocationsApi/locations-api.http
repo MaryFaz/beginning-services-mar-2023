@@ -3,12 +3,14 @@
 GET http://localhost:1337/locations
 Accept: application/json
 
-###Adding a locations
+
+### Adding a locations
 
 POST http://localhost:1337/locations
-Content-Type:  application/json
+Content-Type: application/json
 
 {
-  "name":  "Taco Bell",
-  "description":  "Bring Tums"
+  "name": "Taco Bell",
+  "description": "Bring Tums"
+
 }
